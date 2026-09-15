@@ -41,4 +41,6 @@ React 19 · TanStack Start · Tailwind v4 · Better Auth · Neon / PGLite
 
 ## Repo
 
-Private under [pakzade-cpu/final-path](https://github.com/pakzade-cpu/final-path). Flip it to public in GitHub **Settings → General → Danger zone** if you want the source open.
+Public source: [github.com/pakzade-cpu/final-path](https://github.com/pakzade-cpu/final-path). Clone it, fork it, or share the link.
+
+Friends join **the desk** with a Club invite code — GitHub is the source, not the dressing room.
