@@ -1,0 +1,26 @@
+node_modules/
+.project_id
+.github_repo
+.env
+.env.*
+.DS_Store
+
+# Build / preview
+.vercel/
+dist/
+.tanstack/
+.nitro/
+*.log
+
+# Local QA & gen scratch
+screenshots/
+artifacts/
+
+# Grok builder internals (keep app-env for `npm run dev`)
+.grok/preview.log
+.grok/qc-*
+.grok/card-raw.jpg
+.grok/favicon-*.png
+.grok/favicon-qc.html
+.grok/skills/
+.grok/references/

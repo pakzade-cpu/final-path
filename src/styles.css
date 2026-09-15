@@ -1,0 +1,130 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg: #f3efe6;
+  --color-surface: #fffcf7;
+  --color-elevated: #ffffff;
+  --color-fg: #1a2332;
+  --color-muted: #5c6570;
+  --color-subtle: #8a9199;
+  --color-primary: #243044;
+  --color-primary-fg: #f4f0e8;
+  --color-border: #ddd6c8;
+  --color-win: #3d6b4f;
+  --color-loss: #a3534c;
+  --color-draw: #8a7040;
+  --color-r16: #3d5a80;
+  --color-playoff: #6b5a3d;
+  --color-out: #8a9199;
+  --color-pitch: #3d6b4f;
+  --color-pitch-fg: #f4f0e8;
+  --font-display: "Syne", "Segoe UI", system-ui, sans-serif;
+  --font-sans: "IBM Plex Sans", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-xl: 24px;
+  --shadow-soft: 0 18px 40px -24px rgb(26 35 50 / 0.28);
+  --shadow-border:
+    0 0 0 1px rgb(26 35 50 / 0.06),
+    0 1px 2px -1px rgb(26 35 50 / 0.06),
+    0 2px 8px 0 rgb(26 35 50 / 0.05);
+  --cursor-ball: url("/cursor-ball.png") 16 16, auto;
+  --cursor-kick: url("/cursor-ball-active.png") 20 20, pointer;
+}
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background: var(--color-bg);
+    color: var(--color-fg);
+    cursor: var(--cursor-ball);
+  }
+
+  body {
+    font-family: var(--font-sans);
+    background: var(--color-bg);
+    color: var(--color-fg);
+    min-height: 100dvh;
+    cursor: var(--cursor-ball);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled),
+  a,
+  select,
+  label[for],
+  input[type="file"] {
+    cursor: var(--cursor-kick);
+  }
+
+  h1,
+  h2,
+  h3 {
+    font-family: var(--font-display);
+    text-wrap: balance;
+    letter-spacing: -0.03em;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  img {
+    outline: 1px solid rgb(26 35 50 / 0.08);
+    outline-offset: -1px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.stadium-wash {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  background:
+    linear-gradient(
+      180deg,
+      rgb(243 239 230 / 0.28) 0%,
+      rgb(243 239 230 / 0.52) 36%,
+      rgb(243 239 230 / 0.86) 78%,
+      rgb(243 239 230 / 0.94) 100%
+    ),
+    url("/stadium.jpg") center 42% / cover no-repeat;
+}
+
+.stadium-wash::after {
+  content: "";
+  position: absolute;
+  right: -8%;
+  bottom: 4%;
+  width: min(52vw, 420px);
+  aspect-ratio: 1;
+  background: url("/ball.jpg") center / cover no-repeat;
+  border-radius: 50%;
+  opacity: 0.22;
+  filter: saturate(0.85);
+}
+
+.panel {
+  background: color-mix(in oklab, var(--color-surface) 82%, transparent);
+  box-shadow: var(--shadow-border);
+  backdrop-filter: blur(8px);
+}
+
+.tabular {
+  font-variant-numeric: tabular-nums;
+}
