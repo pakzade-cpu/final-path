@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
-export type View = "desk" | "table" | "forecast" | "final" | "club" | "me";
+export type View = "live" | "desk" | "table" | "forecast" | "final" | "club" | "me";
 
 export type DeskProfile = {
   displayName: string;
@@ -45,7 +45,7 @@ export const useDesk = create<State>()(
       shirtNo: 10,
       photo: null,
       onboarded: false,
-      view: "desk",
+      view: "live",
       finalA: null,
       finalB: null,
       reminders: false,
@@ -60,7 +60,7 @@ export const useDesk = create<State>()(
           shirtNo: p.shirtNo,
           photo: p.photo,
           onboarded: true,
-          view: "desk",
+          view: "live",
         }),
       patchProfile: (p) => set(p),
       hydrate: (p) =>

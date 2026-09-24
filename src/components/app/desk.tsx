@@ -28,6 +28,7 @@ import { KitCard } from "./kit";
 import { useSlateSummary } from "./slate-card";
 import { Countdown } from "./countdown";
 import { FinalOddsChart, RadarCompare } from "./charts";
+import { Sources } from "./sources";
 import { toast } from "sonner";
 
 export function Desk() {
@@ -247,11 +248,13 @@ export function Desk() {
               {player.pos} · {player.goals} league-phase goal{player.goals === 1 ? "" : "s"}
             </p>
             <p className="mt-4 text-xs leading-relaxed text-subtle">
-              Tracked against the 36. Goal tallies from MD1; the desk updates as the nights land.
+              Tracked against the 36. Goal tallies are the compiled Matchday 1 list.
             </p>
           </div>
         )}
       </section>
+
+      <Sources show={["results", "squads", "ratings", "model", "code"]} />
     </div>
   );
 }

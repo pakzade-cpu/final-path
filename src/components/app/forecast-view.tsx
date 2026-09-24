@@ -10,6 +10,7 @@ import { Crest } from "./crest";
 import { FormStrip } from "./form-strip";
 import { RadarCompare } from "./charts";
 import { SlateCard } from "./slate-card";
+import { Sources } from "./sources";
 import { toast } from "sonner";
 
 function Bar({ label, value, accent }: { label: string; value: number; accent?: boolean }) {
@@ -178,6 +179,8 @@ export function ForecastView() {
           })}
         </div>
       </section>
+
+      <Sources show={["model", "grok", "results"]} />
     </div>
   );
 }
