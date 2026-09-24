@@ -1,8 +1,9 @@
-import { LayoutGrid, Swords, Table2, Target, Trophy } from "lucide-react";
+import { LayoutGrid, Radio, Swords, Table2, Target, Trophy } from "lucide-react";
 import { useDesk, type View } from "@/lib/store";
 import { getTeam } from "@/data/ucl";
 import { cn } from "@/lib/utils";
 import { UserButton } from "@/lib/auth/gates";
+import { ScoresView } from "./scores-view";
 import { Desk } from "./desk";
 import { TableView } from "./table-view";
 import { ForecastView } from "./forecast-view";
@@ -14,6 +15,7 @@ import { KitChip } from "./kit";
 import { Button } from "@/components/ui/button";
 
 const NAV: { id: View; label: string; icon: typeof LayoutGrid }[] = [
+  { id: "live", label: "Live", icon: Radio },
   { id: "desk", label: "Desk", icon: LayoutGrid },
   { id: "table", label: "Table", icon: Table2 },
   { id: "forecast", label: "Card", icon: Target },
@@ -39,7 +41,9 @@ export function Shell({ night, group }: { night?: string; group?: string }) {
             <StarMark className="size-6 text-primary" />
             <div className="min-w-0">
               <p className="font-display text-sm tracking-[0.18em]">FINAL PATH</p>
-              <p className="text-xs uppercase tracking-[0.16em] text-subtle">UCL 26/27</p>
+              <p className="text-xs uppercase tracking-[0.16em] text-subtle">
+                {view === "live" ? "Football" : "UCL 26/27"}
+              </p>
             </div>
           </div>
           <div className="flex items-center gap-2">
@@ -59,6 +63,7 @@ export function Shell({ night, group }: { night?: string; group?: string }) {
       </header>
 
       <main className="relative z-10 mx-auto w-full max-w-3xl px-4 pt-6 pb-28">
+        {view === "live" && <ScoresView />}
         {view === "desk" && <Desk />}
         {view === "table" && <TableView />}
         {view === "forecast" && <ForecastView />}
@@ -68,7 +73,7 @@ export function Shell({ night, group }: { night?: string; group?: string }) {
       </main>
 
       <nav className="fixed inset-x-0 bottom-0 z-20 border-t border-border bg-bg/85 pb-[env(safe-area-inset-bottom)] backdrop-blur-md">
-        <div className="mx-auto grid max-w-3xl grid-cols-5">
+        <div className="mx-auto grid max-w-3xl grid-cols-6">
           {NAV.map((item) => {
             const Icon = item.icon;
             const on = view === item.id;

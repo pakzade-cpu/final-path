@@ -6,6 +6,7 @@ import { useDesk } from "@/lib/store";
 import { Button } from "@/components/ui/button";
 import { Crest } from "./crest";
 import { FinalOddsChart } from "./charts";
+import { Sources } from "./sources";
 import { toast } from "sonner";
 
 export function FinalView() {
@@ -116,6 +117,8 @@ export function FinalView() {
           })}
         </div>
       </section>
+
+      <Sources show={["model", "results", "code"]} />
     </div>
   );
 }

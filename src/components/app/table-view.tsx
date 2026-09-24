@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Crest } from "./crest";
 import { FormStrip } from "./form-strip";
+import { Sources } from "./sources";
 import { cn } from "@/lib/utils";
 
 function bandLabel(band: Standing["band"]) {
@@ -112,6 +113,8 @@ export function TableView() {
           );
         })}
       </div>
+
+      <Sources show={["results", "model", "code"]} />
     </div>
   );
 }
