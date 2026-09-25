@@ -1,4 +1,4 @@
-import { LayoutGrid, Radio, Swords, Table2, Target, Trophy } from "lucide-react";
+import { GitCompare, Globe2, LayoutGrid, Radio, Star, Target } from "lucide-react";
 import { useDesk, type View } from "@/lib/store";
 import { getTeam } from "@/data/ucl";
 import { cn } from "@/lib/utils";
@@ -10,18 +10,21 @@ import { ForecastView } from "./forecast-view";
 import { FinalView } from "./final-view";
 import { ClubView } from "./club-view";
 import { ProfileView } from "./profile-view";
+import { WorldView } from "./world-view";
+import { FavoritesView } from "./favorites-view";
+import { CompareView } from "./compare-view";
 import { StarMark } from "./mark";
 import { KitChip } from "./kit";
 import { Assistant } from "./assistant";
 import { Button } from "@/components/ui/button";
 
 const NAV: { id: View; label: string; icon: typeof LayoutGrid }[] = [
-  { id: "live", label: "Live", icon: Radio },
+  { id: "world", label: "World", icon: Globe2 },
   { id: "desk", label: "Desk", icon: LayoutGrid },
-  { id: "table", label: "Table", icon: Table2 },
+  { id: "live", label: "Live", icon: Radio },
+  { id: "compare", label: "Compare", icon: GitCompare },
+  { id: "favorites", label: "Favs", icon: Star },
   { id: "forecast", label: "Card", icon: Target },
-  { id: "final", label: "Final", icon: Trophy },
-  { id: "club", label: "Club", icon: Swords },
 ];
 
 export function Shell({ night, group }: { night?: string; group?: string }) {
@@ -43,7 +46,9 @@ export function Shell({ night, group }: { night?: string; group?: string }) {
             <div className="min-w-0">
               <p className="font-display text-sm tracking-[0.18em]">WORLD SOCCER</p>
               <p className="text-xs uppercase tracking-[0.16em] text-subtle">
-                {view === "live" ? "Aras Studio" : "Aras Studio · UCL 26/27"}
+                {view === "world" || view === "favorites" || view === "compare"
+                  ? "Aras Studio · World"
+                  : "Aras Studio · UCL 26/27"}
               </p>
             </div>
           </div>
@@ -69,6 +74,7 @@ export function Shell({ night, group }: { night?: string; group?: string }) {
       </header>
 
       <main className="relative z-10 mx-auto w-full max-w-3xl px-4 pt-6 pb-28">
+        {view === "world" && <WorldView />}
         {view === "live" && <ScoresView />}
         {view === "desk" && <Desk />}
         {view === "table" && <TableView />}
@@ -76,6 +82,8 @@ export function Shell({ night, group }: { night?: string; group?: string }) {
         {view === "final" && <FinalView />}
         {view === "club" && <ClubView presetGroup={group} night={night} />}
         {view === "me" && <ProfileView />}
+        {view === "favorites" && <FavoritesView />}
+        {view === "compare" && <CompareView />}
       </main>
 
       <nav className="fixed inset-x-0 bottom-0 z-20 border-t border-border bg-bg/85 pb-[env(safe-area-inset-bottom)] backdrop-blur-md">

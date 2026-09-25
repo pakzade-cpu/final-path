@@ -22,6 +22,7 @@ function Home() {
   const { night, group } = Route.useSearch();
   const { user, isPending } = useCurrentUserState();
   const onboarded = useDesk((s) => s.onboarded);
+  const guest = useDesk((s) => s.guest);
   const setView = useDesk((s) => s.setView);
   const setNight = useDesk((s) => s.setNight);
   const setGroupCode = useDesk((s) => s.setGroupCode);
@@ -79,8 +80,8 @@ function Home() {
     setView("club");
   }, [group, setGroupCode, setView]);
 
-  if (!user) return <LoginScreen />;
-  if (!profileReady) return <BootScreen />;
+  if (!user && !guest) return <LoginScreen />;
+  if (!profileReady && user) return <BootScreen />;
   if (!onboarded) return <Onboarding />;
   return <Shell night={night?.toUpperCase()} group={group?.toUpperCase()} />;
 }

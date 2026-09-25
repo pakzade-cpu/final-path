@@ -1,8 +1,11 @@
 import { GROK_PROVIDERS, authEnabled, signIn } from "@/lib/auth/client";
+import { useDesk } from "@/lib/store";
 import { StarMark } from "./mark";
+import { Assistant } from "./assistant";
 import { Button } from "@/components/ui/button";
 
 export function LoginScreen() {
+  const enterAsGuest = useDesk((s) => s.enterAsGuest);
   return (
     <main className="relative grid min-h-dvh place-items-center overflow-hidden px-4 py-10">
       <div className="stadium-wash" />
@@ -32,9 +35,17 @@ export function LoginScreen() {
                 Continue with {p.label}
               </Button>
             ))}
+            <Button className="w-full" variant="ghost" onClick={enterAsGuest}>
+              Enter as a guest
+            </Button>
           </div>
         ) : (
-          <p className="text-sm text-muted">Sign-in is disabled.</p>
+          <div className="space-y-2">
+            <p className="text-sm text-muted">Sign-in is optional on this machine.</p>
+            <Button className="w-full" onClick={enterAsGuest}>
+              Enter as a guest
+            </Button>
+          </div>
         )}
       </div>
       <img
@@ -42,6 +53,7 @@ export function LoginScreen() {
         alt=""
         className="pointer-events-none absolute -right-12 -bottom-10 z-[1] size-28 rounded-full object-cover shadow-soft sm:-right-10 sm:-bottom-6 sm:size-52"
       />
+      <Assistant />
     </main>
   );
 }

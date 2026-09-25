@@ -127,6 +127,18 @@ export function Desk() {
 
       <p className="rounded-xl px-4 py-3 text-sm text-muted panel">{PULSES[pulse]}</p>
 
+      <div className="grid grid-cols-3 gap-2">
+        <Button variant="outline" size="sm" onClick={() => setView("table")}>
+          Table
+        </Button>
+        <Button variant="outline" size="sm" onClick={() => setView("final")}>
+          Final
+        </Button>
+        <Button variant="outline" size="sm" onClick={() => setView("club")}>
+          Club
+        </Button>
+      </div>
+
       <button
         type="button"
         onClick={() => setView("forecast")}

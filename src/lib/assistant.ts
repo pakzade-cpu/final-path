@@ -1,4 +1,5 @@
 import { createServerFn } from "@tanstack/react-start";
+import { localDeskReply } from "./assistant-local";
 
 export type ChatRole = "user" | "assistant";
 
@@ -62,12 +63,7 @@ export const askAssistant = createServerFn({ method: "POST" })
   .handler(async ({ data }): Promise<AssistantReply> => {
     const apiKey = process.env.XAI_API_KEY?.trim();
     if (!apiKey) {
-      return {
-        ok: false,
-        reason: "unconfigured",
-        message:
-          "The assistant isn't set up yet — an XAI_API_KEY needs to be configured on the server before I can answer.",
-      };
+      return { ok: true, reply: localDeskReply(data.message) };
     }
 
     const model = process.env.XAI_MODEL?.trim() || DEFAULT_MODEL;
