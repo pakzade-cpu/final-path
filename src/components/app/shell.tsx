@@ -12,6 +12,7 @@ import { ClubView } from "./club-view";
 import { ProfileView } from "./profile-view";
 import { StarMark } from "./mark";
 import { KitChip } from "./kit";
+import { Assistant } from "./assistant";
 import { Button } from "@/components/ui/button";
 
 const NAV: { id: View; label: string; icon: typeof LayoutGrid }[] = [
@@ -55,7 +56,12 @@ export function Shell({ night, group }: { night?: string; group?: string }) {
             <div className="hidden min-w-0 sm:block">
               <UserButton />
             </div>
-            <Button variant="ghost" size="sm" className="hidden text-subtle lg:inline-flex" onClick={reset}>
+            <Button
+              variant="ghost"
+              size="sm"
+              className="hidden text-subtle lg:inline-flex"
+              onClick={reset}
+            >
               Switch club
             </Button>
           </div>
@@ -94,6 +100,8 @@ export function Shell({ night, group }: { night?: string; group?: string }) {
           })}
         </div>
       </nav>
+
+      <Assistant />
     </div>
   );
 }
