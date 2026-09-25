@@ -41,9 +41,9 @@ export function Shell({ night, group }: { night?: string; group?: string }) {
           <div className="flex min-w-0 items-center gap-2">
             <StarMark className="size-6 text-primary" />
             <div className="min-w-0">
-              <p className="font-display text-sm tracking-[0.18em]">FINAL PATH</p>
+              <p className="font-display text-sm tracking-[0.18em]">WORLD SOCCER</p>
               <p className="text-xs uppercase tracking-[0.16em] text-subtle">
-                {view === "live" ? "Football" : "UCL 26/27"}
+                {view === "live" ? "Aras Studio" : "Aras Studio · UCL 26/27"}
               </p>
             </div>
           </div>

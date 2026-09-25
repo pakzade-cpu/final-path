@@ -15,7 +15,7 @@ type Message = {
 const GREETING: Message = {
   id: "greeting",
   role: "assistant",
-  text: "Hi! I'm your Final Path assistant. Ask me about the table, the what-if, how the prediction card is scored, your club, or anything Champions League.",
+  text: "Hi! I'm your World Soccer assistant. Ask me about the table, the what-if, how the prediction card is scored, your club, or anything Champions League.",
 };
 
 function newId() {

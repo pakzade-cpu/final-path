@@ -10,8 +10,8 @@ export function LoginScreen() {
         <div className="flex items-center gap-3">
           <StarMark className="size-7 text-primary" />
           <div>
-            <p className="font-display text-sm tracking-[0.2em]">FINAL PATH</p>
-            <p className="text-xs text-subtle">Champions League 2026/27</p>
+            <p className="font-display text-sm tracking-[0.2em]">WORLD SOCCER</p>
+            <p className="text-xs text-subtle">Aras Studio · Champions League 2026/27</p>
           </div>
         </div>
         <div>

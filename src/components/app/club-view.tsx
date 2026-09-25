@@ -104,8 +104,8 @@ function GroupsHome() {
 
   async function shareApp() {
     const url = window.location.origin;
-    const text = `Join me on Final Path — Champions League 26/27 desk, kits, and forecast challenges.\n${url}`;
-    const ok = await nativeShare("Final Path", text, url);
+    const text = `Join me on World Soccer — Champions League 26/27 desk, kits, and forecast challenges.\n${url}`;
+    const ok = await nativeShare("World Soccer", text, url);
     if (!ok) window.open(xIntent(text), "_blank", "noopener,noreferrer");
   }
 
@@ -120,7 +120,7 @@ function GroupsHome() {
       </div>
 
       <Button variant="outline" className="w-full" onClick={() => void shareApp()}>
-        <Share2 /> Share Final Path on X
+        <Share2 /> Share World Soccer on X
       </Button>
 
       {groups.length > 0 && (

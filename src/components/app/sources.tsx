@@ -21,7 +21,7 @@ export function Sources({ show }: { show: SourceKey[] }) {
           <li key={key}>
             {key === "code" ? (
               <>
-                The desk itself is public at{" "}
+                World Soccer is an Aras Studio desk. Source is public at{" "}
                 <a href={REPO} target="_blank" rel="noreferrer" className="underline underline-offset-2">
                   github.com/pakzade-cpu/final-path
                 </a>

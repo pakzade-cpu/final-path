@@ -23,7 +23,7 @@ const MAX_MESSAGE = 2_000;
 const TIMEOUT_MS = 30_000;
 
 const SYSTEM_PROMPT = [
-  "You are the Assistant for Final Path, a Champions League forecast desk web app.",
+  "You are the Assistant for World Soccer, a Champions League forecast desk by Aras Studio.",
   "Help users get the most out of the app and answer general football / UEFA Champions League questions.",
   "The app covers: building a personal kit (club, player, shirt number, photo);",
   "the 36-team league-phase table with a what-if that recomputes standings from hypothetical results;",

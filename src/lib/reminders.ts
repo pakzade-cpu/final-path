@@ -1,6 +1,6 @@
 import { formatKickoff, getTeam, type Match } from "@/data/ucl";
 
-const KEY = "final-path-notified";
+const KEY = "world-soccer-notified";
 
 function notified(): Set<string> {
   try {
@@ -53,7 +53,7 @@ export function fireKickoffPing(match: Match, clubId: string) {
   const home = getTeam(match.home);
   const away = getTeam(match.away);
   new Notification(`${home.short} vs ${away.short} — live`, {
-    body: `${getTeam(clubId).name} · open Final Path for the night desk.`,
+    body: `${getTeam(clubId).name} · open World Soccer for the night desk.`,
     tag: id,
   });
   mark(id);

@@ -92,7 +92,7 @@ export function Desk() {
       finalB,
       url,
     });
-    const shared = await nativeShare("Final Path", text, url);
+    const shared = await nativeShare("World Soccer", text, url);
     if (!shared) {
       window.open(xIntent(text), "_blank", "noopener,noreferrer");
     }

@@ -92,7 +92,7 @@ export const useDesk = create<State>()(
         }),
     }),
     {
-      name: "final-path-desk",
+      name: "world-soccer-desk",
       partialize: (s) => ({
         displayName: s.displayName,
         clubId: s.clubId,

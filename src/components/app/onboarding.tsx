@@ -64,8 +64,8 @@ export function Onboarding() {
       <div className="relative z-10 mb-10 flex items-center gap-3 text-muted">
         <StarMark className="size-7 text-primary" />
         <div>
-          <p className="font-display text-sm tracking-[0.22em] text-fg">FINAL PATH</p>
-          <p className="text-xs text-subtle">Champions League 2026/27</p>
+          <p className="font-display text-sm tracking-[0.22em] text-fg">WORLD SOCCER</p>
+          <p className="text-xs text-subtle">Aras Studio · Champions League 2026/27</p>
         </div>
       </div>
 
