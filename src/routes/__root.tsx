@@ -1,10 +1,9 @@
 import { createRootRoute, HeadContent, Outlet, Scripts } from "@tanstack/react-router";
 import { AuthProvider } from "@/lib/auth/provider";
 import { PreviewHostBridge } from "@/components/preview-host-bridge";
+import { APP_NAME } from "@/lib/brand";
 import { Toaster } from "sonner";
 import appCss from "../styles.css?url";
-
-const APP_NAME = "Final Path";
 
 export const Route = createRootRoute({
   head: () => ({

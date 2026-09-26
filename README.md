@@ -1,12 +1,12 @@
-# Final Path
+# World Soccer
 
-Personal Champions League **2026/27** desk. Hang your kit, fill the matchday card, challenge friends, pick Madrid.
+**Aras Studio presents World Soccer** — a personal Champions League **2026/27** desk. Hang your kit, fill the matchday card, challenge friends, pick Madrid.
 
 Road: League phase → Play-off → Round of 16 → Quarter-finals → Semi-finals → **Metropolitano, 5 June 2027**.
 
 ## What’s in the desk
 
-- **Kit** — favourite club shirt, your photo on the chest, the number you want
+- **Kit** — favourite club colours on a generic shirt, your photo on the chest, the number you want
 - **Table** — live 36-team Swiss table, form strips, what-if (W/D/L) on the next fixture, projected finish
 - **Card** — all 18 games on a matchday; exact score **5 pts**, correct result **2 pts**; locks at kickoff
 - **Club** — invite friends with a share code, group leaderboard, sealed score + XI / first-sub challenges
@@ -14,6 +14,8 @@ Road: League phase → Play-off → Round of 16 → Quarter-finals → Semi-fina
 - Sign in with **X** or **Google**
 
 Scoring is not a €100m fantasy. It is a forecast desk: scores, lineups, and a group board.
+
+Kits use each club’s colours on an original shirt template — no manufacturer marks and no replica artwork.
 
 ## Run it
 
@@ -44,3 +46,5 @@ React 19 · TanStack Start · Tailwind v4 · Better Auth · Neon / PGLite
 Public source: [github.com/pakzade-cpu/final-path](https://github.com/pakzade-cpu/final-path). Clone it, fork it, or share the link.
 
 Friends join **the desk** with a Club invite code — GitHub is the source, not the dressing room.
+
+A product of **Aras Studio**.

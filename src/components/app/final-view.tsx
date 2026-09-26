@@ -38,8 +38,8 @@ export function FinalView() {
     }
     const a = getTeam(finalA);
     const b = getTeam(finalB);
-    const text = `${displayName}'s Madrid night: ${a.name} vs ${b.name}.\nUCL final · 5 June 2027 · Estadio Metropolitano.\nTracked on Final Path ${window.location.origin}`;
-    const ok = await nativeShare("Final Path", text, window.location.origin);
+    const text = `${displayName}'s Madrid night: ${a.name} vs ${b.name}.\nUCL final · 5 June 2027 · Estadio Metropolitano.\nTracked on World Soccer ${window.location.origin}`;
+    const ok = await nativeShare("World Soccer", text, window.location.origin);
     if (!ok) window.open(xIntent(text), "_blank", "noopener,noreferrer");
   }
 

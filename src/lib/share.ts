@@ -1,4 +1,5 @@
 import { getTeam, type Match, formatKickoff } from "@/data/ucl";
+import { APP_NAME } from "@/lib/brand";
 
 export function xIntent(text: string): string {
   return `https://x.com/intent/post?text=${encodeURIComponent(text)}`;
@@ -17,7 +18,7 @@ export function shareMatchCopy(opts: {
   const home = getTeam(opts.match.home);
   const away = getTeam(opts.match.away);
   const lines = [
-    `${opts.name} · ${club.name} on Final Path.`,
+    `${opts.name} · ${club.name} on ${APP_NAME}.`,
     `Next: ${home.short} vs ${away.short} — ${formatKickoff(opts.match.kickoff)}.`,
   ];
   if (opts.scoreHint) lines.push(`Model: ${opts.scoreHint}.`);
@@ -29,11 +30,11 @@ export function shareMatchCopy(opts: {
 }
 
 export function shareNightCopy(code: string, clubName: string, url: string): string {
-  return `Night is open. Watching Champions League 26/27 with ${clubName} on Final Path.\nRoom ${code}\n${url}`;
+  return `Night is open. Watching Champions League 26/27 with ${clubName} on ${APP_NAME}.\nRoom ${code}\n${url}`;
 }
 
 export function shareGroupCopy(groupName: string, code: string, clubName: string, url: string): string {
-  return `Join my Final Path club — ${groupName}.\nWe pick scores, XIs and first subs before kick-off. I'm on ${clubName}.\nCode ${code}\n${url}`;
+  return `Join my ${APP_NAME} club — ${groupName}.\nWe pick scores, XIs and first subs before kick-off. I'm on ${clubName}.\nCode ${code}\n${url}`;
 }
 
 export async function nativeShare(title: string, text: string, url: string): Promise<boolean> {
@@ -68,14 +69,14 @@ export function icsForMatch(match: Match): string {
   return [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//Final Path//UCL 26-27//EN",
+    `PRODID:-//${APP_NAME}//UCL 26-27//EN`,
     "BEGIN:VEVENT",
-    `UID:${match.id}@finalpath`,
+    `UID:${match.id}@worldsoccer`,
     `DTSTAMP:${stamp(new Date())}`,
     `DTSTART:${stamp(start)}`,
     `DTEND:${stamp(end)}`,
     `SUMMARY:UCL · ${home.name} vs ${away.name}`,
-    `DESCRIPTION:Final Path reminder — Champions League 2026/27 matchday ${match.md}.`,
+    `DESCRIPTION:${APP_NAME} reminder — Champions League 2026/27 matchday ${match.md}.`,
     `LOCATION:${home.stadium}`,
     "END:VEVENT",
     "END:VCALENDAR",

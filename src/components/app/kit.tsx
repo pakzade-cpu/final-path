@@ -1,4 +1,5 @@
 import type { Team } from "@/data/ucl";
+import { kitFor } from "@/data/club-kits";
 import { useId } from "react";
 
 function inkOn(hex: string): string {
@@ -28,8 +29,8 @@ export function KitCard({
 }) {
   const w = size === "lg" ? 196 : size === "sm" ? 112 : 148;
   const h = Math.round(w * 1.38);
-  const ink = inkOn(team.color);
-  const sleeve = team.ink;
+  const kit = kitFor(team.id, team);
+  const ink = inkOn(kit.body);
   const uid = useId().replace(/:/g, "");
   const gid = `kit-${uid}`;
   const initial = (name.trim()[0] || team.short[0] || "?").toUpperCase();
@@ -42,7 +43,7 @@ export function KitCard({
     top: "33.2%",
     width: "32.5%",
     height: "23.5%",
-    background: team.color,
+    background: kit.body,
     color: ink,
   };
   const face = photo ? (
@@ -62,9 +63,9 @@ export function KitCard({
         <svg viewBox="0 0 160 220" width={w} height={h} className="block drop-shadow-sm" aria-hidden>
           <defs>
             <linearGradient id={`${gid}-body`} x1="0" y1="0" x2="1" y2="1">
-              <stop offset="0%" stopColor={team.color} stopOpacity="1" />
-              <stop offset="55%" stopColor={team.color} />
-              <stop offset="100%" stopColor={sleeve} stopOpacity="0.35" />
+              <stop offset="0%" stopColor={kit.body} stopOpacity="1" />
+              <stop offset="70%" stopColor={kit.body} />
+              <stop offset="100%" stopColor={kit.sleeve} stopOpacity="0.28" />
             </linearGradient>
             <linearGradient id={`${gid}-shade`} x1="0" y1="0" x2="0" y2="1">
               <stop offset="0%" stopColor="#fff" stopOpacity="0.14" />
@@ -95,9 +96,10 @@ export function KitCard({
             stroke="rgb(26 35 50 / 0.18)"
             strokeWidth="1.2"
           />
-          <path d="M42 38 L22 50 L30 84 L46 76 L50 48 Z" fill={sleeve} opacity="0.92" />
-          <path d="M118 38 L138 50 L130 84 L114 76 L110 48 Z" fill={sleeve} opacity="0.92" />
-          <path d="M64 38 C70 52 90 52 96 38 L90 58 C86 50 74 50 70 58 Z" fill={sleeve} />
+          <path d="M42 38 L22 50 L30 84 L46 76 L50 48 Z" fill={kit.sleeve} opacity="0.94" />
+          <path d="M118 38 L138 50 L130 84 L114 76 L110 48 Z" fill={kit.sleeve} opacity="0.94" />
+          <path d="M64 38 C70 52 90 52 96 38 L90 58 C86 50 74 50 70 58 Z" fill={kit.trim} />
+          <path d="M46 92 L114 92 L114 104 L46 104 Z" fill={kit.trim} opacity="0.88" />
           <path
             d="M46 76 L46 196 Q46 208 80 208 Q114 208 114 196 L114 76"
             fill={`url(#${gid}-shade)`}
@@ -149,7 +151,8 @@ export function KitChip({
   photo?: string | null;
   number: number;
 }) {
-  const ink = inkOn(team.color);
+  const kit = kitFor(team.id, team);
+  const ink = inkOn(kit.body);
   return (
     <span className="relative inline-flex size-11 shrink-0 items-center justify-center overflow-hidden rounded-full border border-border">
       {photo ? (
@@ -157,14 +160,14 @@ export function KitChip({
       ) : (
         <span
           className="grid size-full place-items-center text-xs font-semibold"
-          style={{ background: team.color, color: ink }}
+          style={{ background: kit.body, color: ink }}
         >
           {team.short.slice(0, 2)}
         </span>
       )}
       <span
         className="absolute -right-0.5 -bottom-0.5 grid size-5 place-items-center rounded-full border border-border font-display text-[10px] leading-none"
-        style={{ background: team.color, color: ink }}
+        style={{ background: kit.body, color: ink }}
       >
         {number}
       </span>

@@ -6,7 +6,8 @@ export function BootScreen() {
       <div className="stadium-wash" />
       <div className="relative z-10 flex flex-col items-center gap-4 text-center">
         <StarMark className="size-10 text-primary" />
-        <p className="font-display text-sm tracking-[0.22em]">FINAL PATH</p>
+        <p className="font-display text-sm tracking-[0.22em]">WORLD SOCCER</p>
+        <p className="text-xs uppercase tracking-[0.16em] text-subtle">Aras Studio</p>
         <p className="text-sm text-muted">Opening the desk…</p>
       </div>
     </div>
